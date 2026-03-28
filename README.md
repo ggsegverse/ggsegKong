@@ -50,3 +50,10 @@ Kong 2022 Areal MS-HBM 17-network parcellations at 10 resolutions (Kong et al., 
 | 800 | `kong2022_800()` |
 | 900 | `kong2022_900()` |
 | 1000 | `kong2022_1000()` |
+
+## Data sources
+
+| Atlas | Source | Reference | Date obtained |
+|-------|--------|-----------|---------------|
+| kong2019 | MATLAB group priors from [ThomasYeoLab/CBIG](https://github.com/ThomasYeoLab/CBIG/tree/master/stable_projects/brain_parcellation/Kong2019_MSHBM/lib/group_priors/GSP_37), converted to fsaverage5 .annot | Kong et al. (2019) [doi:10.1093/cercor/bhy123](https://doi.org/10.1093/cercor/bhy123) | 2026-03-28 |
+| kong2022 | Annotation files from [ThomasYeoLab/CBIG](https://github.com/ThomasYeoLab/CBIG/tree/master/stable_projects/brain_parcellation/Yan2023_homotopic/parcellations/FreeSurfer/fsaverage5/label/kong17) (fsaverage5) | Kong et al. (2022) [doi:10.1093/cercor/bhab101](https://doi.org/10.1093/cercor/bhab101) | 2026-03-28 |
