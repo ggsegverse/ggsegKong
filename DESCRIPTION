@@ -1,6 +1,6 @@
 Package: ggsegKong
 Title: Kong Cortical Parcellation Atlases for the 'ggsegverse' Ecosystem
-Version: 1.0.0
+Version: 1.0.1
 Authors@R: c(person("Athanasia Mo", "Mowinckel",
                     email = "a.m.mowinckel@psykologi.uio.no",
                     role = c("aut", "cre"),
