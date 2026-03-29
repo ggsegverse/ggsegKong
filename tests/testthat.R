@@ -1,4 +1,4 @@
 library(testthat)
-library(ggsegKong2022)
+library(ggsegKong)
 
-test_check("ggsegKong2022")
+test_check("ggsegKong")
