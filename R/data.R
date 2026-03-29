@@ -18,6 +18,7 @@
 #' @examples
 #' kong2019()
 # fmt: skip
+#' plot(kong2019())
 kong2019 <- function() .kong2019
 
 # Kong 2022 17-Network parcellations ----
@@ -40,6 +41,7 @@ kong2019 <- function() .kong2019
 #' @export
 #' @examples
 #' kong2022_100()
+#' plot(kong2022_100())
 kong2022_100 <- function() .kong2022_100
 #' Kong 2022 17-Network 200-Parcel Atlas
 #'
@@ -59,6 +61,7 @@ kong2022_100 <- function() .kong2022_100
 #' @export
 #' @examples
 #' kong2022_200()
+#' plot(kong2022_200())
 kong2022_200 <- function() .kong2022_200
 #' Kong 2022 17-Network 300-Parcel Atlas
 #'
@@ -78,6 +81,7 @@ kong2022_200 <- function() .kong2022_200
 #' @export
 #' @examples
 #' kong2022_300()
+#' plot(kong2022_300())
 kong2022_300 <- function() .kong2022_300
 #' Kong 2022 17-Network 400-Parcel Atlas
 #'
@@ -97,6 +101,7 @@ kong2022_300 <- function() .kong2022_300
 #' @export
 #' @examples
 #' kong2022_400()
+#' plot(kong2022_400())
 kong2022_400 <- function() .kong2022_400
 #' Kong 2022 17-Network 500-Parcel Atlas
 #'
@@ -116,6 +121,7 @@ kong2022_400 <- function() .kong2022_400
 #' @export
 #' @examples
 #' kong2022_500()
+#' plot(kong2022_500())
 kong2022_500 <- function() .kong2022_500
 #' Kong 2022 17-Network 600-Parcel Atlas
 #'
@@ -135,6 +141,7 @@ kong2022_500 <- function() .kong2022_500
 #' @export
 #' @examples
 #' kong2022_600()
+#' plot(kong2022_600())
 kong2022_600 <- function() .kong2022_600
 #' Kong 2022 17-Network 700-Parcel Atlas
 #'
@@ -154,6 +161,7 @@ kong2022_600 <- function() .kong2022_600
 #' @export
 #' @examples
 #' kong2022_700()
+#' plot(kong2022_700())
 kong2022_700 <- function() .kong2022_700
 #' Kong 2022 17-Network 800-Parcel Atlas
 #'
@@ -173,6 +181,7 @@ kong2022_700 <- function() .kong2022_700
 #' @export
 #' @examples
 #' kong2022_800()
+#' plot(kong2022_800())
 kong2022_800 <- function() .kong2022_800
 #' Kong 2022 17-Network 900-Parcel Atlas
 #'
@@ -192,6 +201,7 @@ kong2022_800 <- function() .kong2022_800
 #' @export
 #' @examples
 #' kong2022_900()
+#' plot(kong2022_900())
 kong2022_900 <- function() .kong2022_900
 #' Kong 2022 17-Network 1000-Parcel Atlas
 #'
@@ -211,4 +221,5 @@ kong2022_900 <- function() .kong2022_900
 #' @export
 #' @examples
 #' kong2022_1000()
+#' plot(kong2022_1000())
 kong2022_1000 <- function() .kong2022_1000
