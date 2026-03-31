@@ -6,6 +6,7 @@
 #' 3D vertex indices for [ggseg3d::ggseg3d()].
 #'
 #' @family ggseg_atlases
+#' @family cortical_atlases
 #'
 #' @references Kong R, et al. (2019). "Spatial Topography of Individual-Specific
 #'   Cortical Networks Predicts Human Cognition, Personality, and Emotion."
@@ -30,6 +31,7 @@ kong2019 <- function() .kong2019
 #' 3D vertex indices for [ggseg3d::ggseg3d()].
 #'
 #' @family ggseg_atlases
+#' @family cortical_atlases
 #'
 #' @references Kong R, et al. (2022). "Individual-Specific Areal-Level
 #'   Parcellations Improve Functional Connectivity Prediction of Behavior."
@@ -51,6 +53,7 @@ kong2022_100 <- function() .kong2022_100
 #' 3D vertex indices for [ggseg3d::ggseg3d()].
 #'
 #' @family ggseg_atlases
+#' @family cortical_atlases
 #'
 #' @references Kong R, et al. (2022). "Individual-Specific Areal-Level
 #'   Parcellations Improve Functional Connectivity Prediction of Behavior."
@@ -71,6 +74,7 @@ kong2022_200 <- function() .kong2022_200
 #' 3D vertex indices for [ggseg3d::ggseg3d()].
 #'
 #' @family ggseg_atlases
+#' @family cortical_atlases
 #'
 #' @references Kong R, et al. (2022). "Individual-Specific Areal-Level
 #'   Parcellations Improve Functional Connectivity Prediction of Behavior."
@@ -91,6 +95,7 @@ kong2022_300 <- function() .kong2022_300
 #' 3D vertex indices for [ggseg3d::ggseg3d()].
 #'
 #' @family ggseg_atlases
+#' @family cortical_atlases
 #'
 #' @references Kong R, et al. (2022). "Individual-Specific Areal-Level
 #'   Parcellations Improve Functional Connectivity Prediction of Behavior."
@@ -111,6 +116,7 @@ kong2022_400 <- function() .kong2022_400
 #' 3D vertex indices for [ggseg3d::ggseg3d()].
 #'
 #' @family ggseg_atlases
+#' @family cortical_atlases
 #'
 #' @references Kong R, et al. (2022). "Individual-Specific Areal-Level
 #'   Parcellations Improve Functional Connectivity Prediction of Behavior."
@@ -131,6 +137,7 @@ kong2022_500 <- function() .kong2022_500
 #' 3D vertex indices for [ggseg3d::ggseg3d()].
 #'
 #' @family ggseg_atlases
+#' @family cortical_atlases
 #'
 #' @references Kong R, et al. (2022). "Individual-Specific Areal-Level
 #'   Parcellations Improve Functional Connectivity Prediction of Behavior."
@@ -151,6 +158,7 @@ kong2022_600 <- function() .kong2022_600
 #' 3D vertex indices for [ggseg3d::ggseg3d()].
 #'
 #' @family ggseg_atlases
+#' @family cortical_atlases
 #'
 #' @references Kong R, et al. (2022). "Individual-Specific Areal-Level
 #'   Parcellations Improve Functional Connectivity Prediction of Behavior."
@@ -171,6 +179,7 @@ kong2022_700 <- function() .kong2022_700
 #' 3D vertex indices for [ggseg3d::ggseg3d()].
 #'
 #' @family ggseg_atlases
+#' @family cortical_atlases
 #'
 #' @references Kong R, et al. (2022). "Individual-Specific Areal-Level
 #'   Parcellations Improve Functional Connectivity Prediction of Behavior."
@@ -191,6 +200,7 @@ kong2022_800 <- function() .kong2022_800
 #' 3D vertex indices for [ggseg3d::ggseg3d()].
 #'
 #' @family ggseg_atlases
+#' @family cortical_atlases
 #'
 #' @references Kong R, et al. (2022). "Individual-Specific Areal-Level
 #'   Parcellations Improve Functional Connectivity Prediction of Behavior."
@@ -211,6 +221,7 @@ kong2022_900 <- function() .kong2022_900
 #' 3D vertex indices for [ggseg3d::ggseg3d()].
 #'
 #' @family ggseg_atlases
+#' @family cortical_atlases
 #'
 #' @references Kong R, et al. (2022). "Individual-Specific Areal-Level
 #'   Parcellations Improve Functional Connectivity Prediction of Behavior."
