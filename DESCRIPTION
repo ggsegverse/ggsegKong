@@ -26,6 +26,8 @@ Suggests:
     ggplot2,
     testthat (>= 3.0.0),
     vdiffr
+Remotes:
+    ggsegverse/ggseg
 URL: https://github.com/ggsegverse/ggsegKong
 BugReports: https://github.com/ggsegverse/ggsegKong/issues
 Roxygen: list(markdown = TRUE)
