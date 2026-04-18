@@ -1,25 +1,41 @@
-
+---
+format: gfm
+---
 
 <!-- README.md is generated from README.qmd. Please edit that file -->
+
+```{r}
+#| label: setup
+#| include: false
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%",
+  fig.width = 10,
+  fig.retina = 3
+)
+```
 
 # ggsegKong
 
 <!-- badges: start -->
-
 [![R-CMD-check](https://github.com/ggsegverse/ggsegKong/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ggsegverse/ggsegKong/actions/workflows/R-CMD-check.yaml)
-[![r-universe](https://ggseg.r-universe.dev/badges/ggsegKong.png)](https://ggseg.r-universe.dev/ggsegKong)
+[![r-universe](https://ggseg.r-universe.dev/badges/ggsegKong)](https://ggseg.r-universe.dev/ggsegKong)
 <!-- badges: end -->
 
 Kong cortical parcellation atlases for the ggseg ecosystem. Includes the
-Kong 2019 individual-specific parcellation and Kong 2022
-multi-resolution parcellations (100-1000 parcels).
+Kong 2019 individual-specific parcellation and Kong 2022 multi-resolution
+parcellations (100-1000 parcels).
 
 ## Installation
 
 We recommend installing the ggseg-atlases through the ggseg
 [r-universe](https://ggseg.r-universe.dev/ui#builds):
 
-``` r
+```{r}
+#| label: install-r-universe
+#| eval: false
 options(repos = c(
   ggseg = "https://ggseg.r-universe.dev",
   CRAN = "https://cloud.r-project.org"
@@ -30,14 +46,15 @@ install.packages("ggsegKong")
 
 You can install this package from [GitHub](https://github.com/) with:
 
-``` r
+```r
 # install.packages("pak")
 pak::pak("ggsegverse/ggsegKong")
 ```
 
 ## Kong 2019
 
-``` r
+```{r}
+#| label: kong2019
 library(ggseg)
 library(ggsegKong)
 library(ggplot2)
@@ -53,11 +70,10 @@ ggplot() +
   theme_void()
 ```
 
-<img src="man/figures/README-kong2019-1.png" style="width:100.0%" />
-
 ## Kong 2022 (400 parcels)
 
-``` r
+```{r}
+#| label: kong2022-400
 ggplot() +
   geom_brain(
     atlas = kong2022_400(),
@@ -69,15 +85,13 @@ ggplot() +
   theme_void()
 ```
 
-<img src="man/figures/README-kong2022-400-1.png" style="width:100.0%" />
-
 ## Data source
 
 Kong R, Li J, Orban C, Sabuncu MR, Liu H, Schaefer A, Sun N, Zuo XN,
-Holmes AJ, Eickhoff SB, & Yeo BTT (2019). Spatial topography of
-individual- specific cortical networks predicts human cognition,
-personality, and emotion. *Cerebral Cortex*, 29(6), 2533-2551.
+Holmes AJ, Eickhoff SB, & Yeo BTT (2019). Spatial topography of individual-
+specific cortical networks predicts human cognition, personality, and emotion.
+*Cerebral Cortex*, 29(6), 2533-2551.
 
-Kong R, Yang Q, Gordon E, et al. (2022). Individual-specific areal-level
+Kong R, Yang Q, Gordon E, et al. (2022). Individual-specific areal-level
 parcellations improve functional connectivity prediction of behavior.
 *Cerebral Cortex*, 31(10), 4477-4500.
