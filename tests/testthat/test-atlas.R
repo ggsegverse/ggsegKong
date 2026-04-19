@@ -1,4 +1,7 @@
-atlas_names <- paste0("kong2022_", c(100, 200, 300, 400, 500, 600, 700, 800, 900, 1000))
+atlas_names <- paste0(
+  "kong2022_",
+  c(100, 200, 300, 400, 500, 600, 700, 800, 900, 1000)
+)
 
 for (nm in atlas_names) {
   atlas <- do.call(nm, list())
@@ -37,6 +40,7 @@ describe("kong2022_400 atlas rendering", {
 
   it("renders with ggseg3d", {
     skip_if_not_installed("ggseg3d")
+    skip_if_not_installed("ggseg.meshes")
     p <- ggseg3d::ggseg3d(atlas = kong2022_400())
     expect_s3_class(p, c("plotly", "htmlwidget"))
   })
