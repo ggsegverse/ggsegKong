@@ -17,7 +17,7 @@ Contains both 2D polygon geometry for \code{\link[ggseg:ggbrain]{ggseg::geom_bra
 }
 \examples{
 kong2019()
-plot(kong2019())
+\dontrun{plot(kong2019())}
 }
 \references{
 Kong R, et al. (2019). "Spatial Topography of Individual-Specific

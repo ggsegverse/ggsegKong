@@ -13,9 +13,10 @@
 #'   *Cerebral Cortex*, 29(6):2533-2551.
 #'   \doi{10.1093/cercor/bhy123}
 #'
+#' @import ggseg.formats
 #' @return A [ggseg.formats::ggseg_atlas] object (cortical).
 #' @export
 #' @examples
 #' kong2019()
-#' plot(kong2019())
+#' \dontrun{plot(kong2019())}
 kong2019 <- function() .kong2019

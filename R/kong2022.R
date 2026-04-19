@@ -18,7 +18,7 @@
 #' @export
 #' @examples
 #' kong2022_100()
-#' plot(kong2022_100())
+#' \dontrun{plot(kong2022_100())}
 kong2022_100 <- function() .kong2022_100
 
 #' @rdname kong2022_100

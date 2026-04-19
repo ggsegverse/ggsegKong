@@ -12,7 +12,7 @@ library(ggseg.formats)
 
 Sys.setenv(FREESURFER_HOME = "/Applications/freesurfer/7.4.1")
 
-# ── Download annotation files from CBIG repo ─────────────────────
+# ── Download annotation files from CBIG repo ──────────
 cbig_base <- paste0(
   "https://raw.githubusercontent.com/ThomasYeoLab/CBIG/master/",
   "stable_projects/brain_parcellation/Yan2023_homotopic/parcellations/",
@@ -36,7 +36,7 @@ for (res in parcels) {
   }
 }
 
-# ── Build each atlas variant ─────────────────────────────────────
+# ── Build each atlas variant ───────────────�
 all_atlases <- list()
 
 for (res in parcels) {
@@ -67,7 +67,7 @@ for (res in parcels) {
   plot(atlas_raw)
 }
 
-# ── Save all atlases as internal data ─────────────────────────────
+# ── Save all atlases as internal data ────────────�
 sysdata_env <- new.env(parent = emptyenv())
 for (nm in names(all_atlases)) {
   sysdata_env[[paste0(".", nm)]] <- all_atlases[[nm]]

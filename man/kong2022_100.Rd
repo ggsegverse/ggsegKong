@@ -45,7 +45,7 @@ Contains both 2D polygon geometry for \code{\link[ggseg:ggbrain]{ggseg::geom_bra
 }
 \examples{
 kong2022_100()
-plot(kong2022_100())
+\dontrun{plot(kong2022_100())}
 kong2022_200()
 kong2022_300()
 kong2022_400()

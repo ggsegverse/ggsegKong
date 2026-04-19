@@ -21,15 +21,19 @@ library(ggseg.extra)
 library(ggseg.formats)
 
 if (!requireNamespace("R.matlab", quietly = TRUE)) {
-  cli::cli_abort("Install {.pkg R.matlab}: {.code install.packages('R.matlab')}")
+  cli::cli_abort(
+
+    "Install {.pkg R.matlab}: {.code install.packages('R.matlab')}")
 }
 if (!requireNamespace("freesurferformats", quietly = TRUE)) {
-  cli::cli_abort("Install {.pkg freesurferformats}: {.code install.packages('freesurferformats')}")
+  cli::cli_abort(
+
+    "Install {.pkg freesurferformats}")
 }
 
 Sys.setenv(FREESURFER_HOME = "/Applications/freesurfer/7.4.1")
 
-# ── Download group priors from CBIG repository ──────────────────
+# ── Download group priors from CBIG repository ─────────�
 cbig_base <- paste0(
   "https://raw.githubusercontent.com/ThomasYeoLab/CBIG/master/",
   "stable_projects/brain_parcellation/Kong2019_MSHBM/",
@@ -69,19 +73,21 @@ vertex_labels <- apply(theta, 1, which.max)
 lh_labels <- vertex_labels[seq_len(n_per_hemi)]
 rh_labels <- vertex_labels[seq(n_per_hemi + 1L, n_vertices)]
 
-# ── Read network label mapping ──────────────────────────────────
+# ── Read network label mapping ──────────────�
 labels_mat <- R.matlab::readMat(file.path(mat_dir, "17network_labels.mat"))
 label_map <- NULL
 for (nm in names(labels_mat)) {
   obj <- labels_mat[[nm]]
   if (is.numeric(obj) && length(obj) == 17) {
     label_map <- as.integer(obj)
-    cli::cli_alert_info("Network label mapping from '{nm}': {paste(label_map, collapse = ', ')}")
+    cli::cli_alert_info(
+
+      "Network label mapping from '{nm}': {paste(label_map, collapse = ', ')}")
     break
   }
 }
 
-# ── 17-network colortable (standard Yeo 2011 colors) ───────────
+# ── 17-network colortable (standard Yeo 2011 colors) ───────�
 yeo17_colors <- data.frame(
   struct_name = c(
     "MedialWall",
@@ -91,9 +97,15 @@ yeo17_colors <- data.frame(
     "17Networks_13", "17Networks_14", "17Networks_15", "17Networks_16",
     "17Networks_17"
   ),
-  r = c(1L, 120L, 255L, 70L, 42L, 74L, 0L, 196L, 255L, 220L, 122L, 119L, 230L, 135L, 12L, 0L, 255L, 205L),
-  g = c(1L, 18L, 0L, 130L, 204L, 155L, 118L, 58L, 152L, 248L, 135L, 140L, 148L, 50L, 48L, 0L, 255L, 62L),
-  b = c(1L, 134L, 0L, 180L, 164L, 60L, 14L, 250L, 213L, 164L, 50L, 176L, 34L, 74L, 255L, 130L, 0L, 78L),
+  r = c(1L, 120L, 255L, 70L, 42L, 74L, 0L, 196L, 255L, 220L, 122L, 119L,
+
+      230L, 135L, 12L, 0L, 255L, 205L),
+  g = c(1L, 18L, 0L, 130L, 204L, 155L, 118L, 58L, 152L, 248L, 135L, 140L,
+
+      148L, 50L, 48L, 0L, 255L, 62L),
+  b = c(1L, 134L, 0L, 180L, 164L, 60L, 14L, 250L, 213L, 164L, 50L, 176L,
+
+      34L, 74L, 255L, 130L, 0L, 78L),
   a = rep(0L, 18L),
   stringsAsFactors = FALSE
 )
@@ -106,7 +118,7 @@ if (!is.null(label_map)) {
   yeo17_colors <- reordered
 }
 
-# ── Write annotation files ──────────────────────────────────────
+# ── Write annotation files ────────────────
 annot_dir <- here::here("data-raw", "fsaverage5")
 dir.create(annot_dir, showWarnings = FALSE, recursive = TRUE)
 
@@ -141,7 +153,7 @@ freesurferformats::write.fs.annot(
 
 cli::cli_alert_success("Created annotation files in {.path {annot_dir}}")
 
-# ── Create atlas ─────────────────────────────────────────────────
+# ── Create atlas ───────────────────�
 cli::cli_h1("Creating kong2019 cortical atlas (17 networks)")
 
 kong2019 <- create_cortical_from_annotation(
