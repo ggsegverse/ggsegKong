@@ -20,10 +20,12 @@ We recommend installing the ggseg-atlases through the ggseg
 [r-universe](https://ggseg.r-universe.dev/ui#builds):
 
 ``` r
-options(repos = c(
-  ggseg = "https://ggseg.r-universe.dev",
-  CRAN = "https://cloud.r-project.org"
-))
+options(
+  repos = c(
+    ggseg = "https://ggseg.r-universe.dev",
+    CRAN = "https://cloud.r-project.org"
+  )
+)
 
 install.packages("ggsegKong")
 ```
@@ -55,7 +57,9 @@ ggplot() +
 
 <img src="man/figures/README-kong2019-1.png" style="width:100.0%" />
 
-## Kong 2022 (400 parcels)
+## Kong 2022
+
+comes in variants of 100 - 1000.
 
 ``` r
 ggplot() +
