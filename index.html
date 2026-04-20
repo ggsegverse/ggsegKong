@@ -73,10 +73,12 @@
 </h2>
 <p>We recommend installing the ggseg-atlases through the ggseg <a href="https://ggseg.r-universe.dev/ui#builds" class="external-link">r-universe</a>:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
-<span>  ggseg <span class="op">=</span> <span class="st">"https://ggseg.r-universe.dev"</span>,</span>
-<span>  CRAN <span class="op">=</span> <span class="st">"https://cloud.r-project.org"</span></span>
-<span><span class="op">)</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span></span>
+<span>  repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>    ggseg <span class="op">=</span> <span class="st">"https://ggseg.r-universe.dev"</span>,</span>
+<span>    CRAN <span class="op">=</span> <span class="st">"https://cloud.r-project.org"</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"ggsegKong"</span><span class="op">)</span></span></code></pre></div>
 <p>You can install this package from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
@@ -104,8 +106,9 @@
 <p><img src="reference/figures/README-kong2019-1.png" style="width:100.0%"></p>
 </div>
 <div class="section level2">
-<h2 id="kong-2022-400-parcels">Kong 2022 (400 parcels)<a class="anchor" aria-label="anchor" href="#kong-2022-400-parcels"></a>
+<h2 id="kong-2022">Kong 2022<a class="anchor" aria-label="anchor" href="#kong-2022"></a>
 </h2>
+<p>comes in variants of 100 - 1000.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggsegverse.github.io/ggseg/reference/ggbrain.html" class="external-link">geom_brain</a></span><span class="op">(</span></span>
