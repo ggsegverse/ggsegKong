@@ -1,7 +1,7 @@
 #' Kong 2022 Areal MS-HBM 17-Network Atlases
 #'
 #' Brain atlases for the Kong et al. (2022) Areal MS-HBM cortical
-#' parcellation aligned to 17 resting-state networks. Available in
+#' parcellation aligned to Yeo 17 resting-state networks. Available in
 #' 100 to 1000 parcel configurations.
 #' Contains both 2D polygon geometry for [ggseg::geom_brain()] and
 #' 3D vertex indices for [ggseg3d::ggseg3d()].
@@ -18,7 +18,8 @@
 #' @export
 #' @examples
 #' kong2022_100()
-#' \dontrun{plot(kong2022_100())}
+#' plot(kong2022_100())
+#' plot(kong2022_1000())
 kong2022_100 <- function() .kong2022_100
 
 #' @rdname kong2022_100
