@@ -22,13 +22,13 @@ library(ggseg.formats)
 
 if (!requireNamespace("R.matlab", quietly = TRUE)) {
   cli::cli_abort(
-
-    "Install {.pkg R.matlab}: {.code install.packages('R.matlab')}")
+    "Install {.pkg R.matlab}: {.code install.packages('R.matlab')}"
+  )
 }
 if (!requireNamespace("freesurferformats", quietly = TRUE)) {
   cli::cli_abort(
-
-    "Install {.pkg freesurferformats}")
+    "Install {.pkg freesurferformats}"
+  )
 }
 
 Sys.setenv(FREESURFER_HOME = "/Applications/freesurfer/7.4.1")
@@ -55,14 +55,16 @@ for (f in c("Params_Final.mat", "17network_labels.mat")) {
 # ── Read group prior theta (network probability per vertex) ─────
 mat <- R.matlab::readMat(file.path(mat_dir, "Params_Final.mat"))
 
-params <- mat$Params[, , 1]
+params <- mat$Params[,, 1]
 theta <- params$theta
 if (is.null(theta) || !is.matrix(theta)) {
   cli::cli_abort("Could not find theta matrix in Params_Final.mat")
 }
 cli::cli_alert_info("Found theta: {paste(dim(theta), collapse = ' x ')}")
 
-if (ncol(theta) != 17 && nrow(theta) == 17) theta <- t(theta)
+if (ncol(theta) != 17 && nrow(theta) == 17) {
+  theta <- t(theta)
+}
 stopifnot("Expected 17 network columns" = ncol(theta) == 17)
 
 n_vertices <- nrow(theta)
@@ -81,8 +83,8 @@ for (nm in names(labels_mat)) {
   if (is.numeric(obj) && length(obj) == 17) {
     label_map <- as.integer(obj)
     cli::cli_alert_info(
-
-      "Network label mapping from '{nm}': {paste(label_map, collapse = ', ')}")
+      "Network label mapping from '{nm}': {paste(label_map, collapse = ', ')}"
+    )
     break
   }
 }
@@ -91,21 +93,87 @@ for (nm in names(labels_mat)) {
 yeo17_colors <- data.frame(
   struct_name = c(
     "MedialWall",
-    "17Networks_1", "17Networks_2", "17Networks_3", "17Networks_4",
-    "17Networks_5", "17Networks_6", "17Networks_7", "17Networks_8",
-    "17Networks_9", "17Networks_10", "17Networks_11", "17Networks_12",
-    "17Networks_13", "17Networks_14", "17Networks_15", "17Networks_16",
+    "17Networks_1",
+    "17Networks_2",
+    "17Networks_3",
+    "17Networks_4",
+    "17Networks_5",
+    "17Networks_6",
+    "17Networks_7",
+    "17Networks_8",
+    "17Networks_9",
+    "17Networks_10",
+    "17Networks_11",
+    "17Networks_12",
+    "17Networks_13",
+    "17Networks_14",
+    "17Networks_15",
+    "17Networks_16",
     "17Networks_17"
   ),
-  r = c(1L, 120L, 255L, 70L, 42L, 74L, 0L, 196L, 255L, 220L, 122L, 119L,
+  r = c(
+    1L,
+    120L,
+    255L,
+    70L,
+    42L,
+    74L,
+    0L,
+    196L,
+    255L,
+    220L,
+    122L,
+    119L,
 
-      230L, 135L, 12L, 0L, 255L, 205L),
-  g = c(1L, 18L, 0L, 130L, 204L, 155L, 118L, 58L, 152L, 248L, 135L, 140L,
+    230L,
+    135L,
+    12L,
+    0L,
+    255L,
+    205L
+  ),
+  g = c(
+    1L,
+    18L,
+    0L,
+    130L,
+    204L,
+    155L,
+    118L,
+    58L,
+    152L,
+    248L,
+    135L,
+    140L,
 
-      148L, 50L, 48L, 0L, 255L, 62L),
-  b = c(1L, 134L, 0L, 180L, 164L, 60L, 14L, 250L, 213L, 164L, 50L, 176L,
+    148L,
+    50L,
+    48L,
+    0L,
+    255L,
+    62L
+  ),
+  b = c(
+    1L,
+    134L,
+    0L,
+    180L,
+    164L,
+    60L,
+    14L,
+    250L,
+    213L,
+    164L,
+    50L,
+    176L,
 
-      34L, 74L, 255L, 130L, 0L, 78L),
+    34L,
+    74L,
+    255L,
+    130L,
+    0L,
+    78L
+  ),
   a = rep(0L, 18L),
   stringsAsFactors = FALSE
 )
@@ -164,6 +232,12 @@ kong2019 <- create_cortical_from_annotation(
   cleanup = FALSE
 ) |>
   atlas_region_contextual("unknown|Background|MedialWall", "label")
+
+
+kong2019 <- kong2019 |>
+  ggseg.formats::atlas_region_rename("17Networks_(\\d+)", "\\1") |>
+  ggseg.formats::atlas_region_contextual("17Networks_1$", "label")
+
 
 print(kong2019)
 plot(kong2019)
