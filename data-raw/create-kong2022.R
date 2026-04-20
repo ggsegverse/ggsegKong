@@ -36,7 +36,33 @@ for (res in parcels) {
   }
 }
 
-# ── Build each atlas variant ───────────────�
+# ── 17 networks from Kong 2022 (for network-column derivation) ──
+networks <- c(
+  "VisualA", "VisualB", "VisualC",
+  "SomMotA", "SomMotB",
+  "DorsAttnA", "DorsAttnB",
+  "SalVenAttnA", "SalVenAttnB",
+  "ContA", "ContB", "ContC",
+  "DefaultA", "DefaultB", "DefaultC",
+  "Language", "Aud"
+)
+net_rx <- paste0("^(", paste(networks, collapse = "|"), ")")
+
+clean_kong2022 <- function(atlas) {
+  stripped <- sub("^17networks_(LH|RH)_", "", atlas$core$region)
+  net <- regmatches(stripped, regexpr(net_rx, stripped))
+  network_df <- unique(data.frame(
+    region = stripped,
+    network = net,
+    stringsAsFactors = FALSE
+  ))
+
+  atlas |>
+    atlas_region_rename("^17networks_(LH|RH)_", "") |>
+    atlas_core_add(network_df, by = "region")
+}
+
+# ── Build each atlas variant ───────────────�
 all_atlases <- list()
 
 for (res in parcels) {
@@ -45,36 +71,45 @@ for (res in parcels) {
   annot_files <- file.path(
     annot_dir,
     sprintf(
-      c("lh.%dParcels_Kong2022_17Networks.annot",
-        "rh.%dParcels_Kong2022_17Networks.annot"),
+      c(
+        "lh.%dParcels_Kong2022_17Networks.annot",
+        "rh.%dParcels_Kong2022_17Networks.annot"
+      ),
       res
     )
   )
 
-  if (!all(file.exists(annot_files))) next
+  if (!all(file.exists(annot_files))) {
+    next
+  }
 
   atlas_raw <- create_cortical_from_annotation(
     input_annot = annot_files,
     atlas_name = atlas_name,
     output_dir = file.path("data-raw", atlas_name),
     skip_existing = TRUE,
-    cleanup = FALSE
+    cleanup = FALSE,
+    tolerance = 0.1 * 100 / res
   ) |>
-    atlas_region_contextual("unknown|Background", "label")
+    atlas_region_contextual("unknown|Background", "label") |>
+    clean_kong2022()
 
   all_atlases[[atlas_name]] <- atlas_raw
-  print(atlas_raw)
   plot(atlas_raw)
 }
 
-# ── Save all atlases as internal data ────────────�
+# ── Save all atlases as internal data ────────────�
+sysdata_path <- here::here("R", "sysdata.rda")
 sysdata_env <- new.env(parent = emptyenv())
+if (file.exists(sysdata_path)) {
+  load(sysdata_path, envir = sysdata_env)
+}
 for (nm in names(all_atlases)) {
   sysdata_env[[paste0(".", nm)]] <- all_atlases[[nm]]
 }
 save(
   list = ls(sysdata_env, all.names = TRUE),
   envir = sysdata_env,
-  file = here::here("R", "sysdata.rda"),
+  file = sysdata_path,
   compress = "xz"
 )

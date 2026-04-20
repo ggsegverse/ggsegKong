@@ -33,7 +33,7 @@ if (!requireNamespace("freesurferformats", quietly = TRUE)) {
 
 Sys.setenv(FREESURFER_HOME = "/Applications/freesurfer/7.4.1")
 
-# ── Download group priors from CBIG repository ─────────�
+# ── Download group priors from CBIG repository ─────────�
 cbig_base <- paste0(
   "https://raw.githubusercontent.com/ThomasYeoLab/CBIG/master/",
   "stable_projects/brain_parcellation/Kong2019_MSHBM/",
@@ -75,7 +75,7 @@ vertex_labels <- apply(theta, 1, which.max)
 lh_labels <- vertex_labels[seq_len(n_per_hemi)]
 rh_labels <- vertex_labels[seq(n_per_hemi + 1L, n_vertices)]
 
-# ── Read network label mapping ──────────────�
+# ── Read network label mapping ──────────────�
 labels_mat <- R.matlab::readMat(file.path(mat_dir, "17network_labels.mat"))
 label_map <- NULL
 for (nm in names(labels_mat)) {
@@ -89,7 +89,7 @@ for (nm in names(labels_mat)) {
   }
 }
 
-# ── 17-network colortable (standard Yeo 2011 colors) ───────�
+# ── 17-network colortable (standard Yeo 2011 colors) ───────�
 yeo17_colors <- data.frame(
   struct_name = c(
     "MedialWall",
@@ -221,7 +221,7 @@ freesurferformats::write.fs.annot(
 
 cli::cli_alert_success("Created annotation files in {.path {annot_dir}}")
 
-# ── Create atlas ───────────────────�
+# ── Create atlas ───────────────────�
 cli::cli_h1("Creating kong2019 cortical atlas (17 networks)")
 
 kong2019 <- create_cortical_from_annotation(
@@ -242,5 +242,15 @@ kong2019 <- kong2019 |>
 print(kong2019)
 plot(kong2019)
 
-.kong2019 <- kong2019
-usethis::use_data(.kong2019, overwrite = TRUE, compress = "xz", internal = TRUE)
+sysdata_path <- here::here("R", "sysdata.rda")
+sysdata_env <- new.env(parent = emptyenv())
+if (file.exists(sysdata_path)) {
+  load(sysdata_path, envir = sysdata_env)
+}
+sysdata_env$.kong2019 <- kong2019
+save(
+  list = ls(sysdata_env, all.names = TRUE),
+  envir = sysdata_env,
+  file = sysdata_path,
+  compress = "xz"
+)
