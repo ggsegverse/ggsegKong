@@ -42,17 +42,8 @@ pak::pak("ggsegverse/ggsegKong")
 ``` r
 library(ggseg)
 library(ggsegKong)
-library(ggplot2)
 
-ggplot() +
-  geom_brain(
-    atlas = kong2019(),
-    mapping = aes(fill = label),
-    position = position_brain(hemi ~ view),
-    show.legend = FALSE
-  ) +
-  scale_fill_manual(values = kong2019()$palette, na.value = "grey") +
-  theme_void()
+plot(kong2019())
 ```
 
 <img src="man/figures/README-kong2019-1.png" style="width:100.0%" />
@@ -62,15 +53,7 @@ ggplot() +
 comes in variants of 100 - 1000.
 
 ``` r
-ggplot() +
-  geom_brain(
-    atlas = kong2022_400(),
-    mapping = aes(fill = label),
-    position = position_brain(hemi ~ view),
-    show.legend = FALSE
-  ) +
-  scale_fill_manual(values = kong2022_400()$palette, na.value = "grey") +
-  theme_void()
+plot(kong2022_400())
 ```
 
 <img src="man/figures/README-kong2022-400-1.png" style="width:100.0%" />
