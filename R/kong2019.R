@@ -18,5 +18,5 @@
 #' @export
 #' @examples
 #' kong2019()
-#' \dontrun{plot(kong2019())}
+#' plot(kong2019())
 kong2019 <- function() .kong2019

@@ -33,7 +33,7 @@ for (nm in atlas_names) {
 
     it("renders with ggseg3d", {
       p <- ggseg3d(atlas = atlas)
-      expect_s3_class(p, c("plotly", "htmlwidget"))
+      expect_s3_class(p, c("ggseg3d", "htmlwidget"))
     })
   })
 }
